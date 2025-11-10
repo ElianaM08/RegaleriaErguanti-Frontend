@@ -21,7 +21,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { useProductStore } from "@/store/ProductStore";
+import { useProductStore } from "@/stores/ProductStore";
 import ProductForm from "@/components/Product/ProductForm.vue";
 
 const store = useProductStore();

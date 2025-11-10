@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import PurchaseForm from "@/components/Purchase/PurchaseForm.vue";
+import PurchaseForm from "@/components/Purcharse/PurchaseForm.vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();

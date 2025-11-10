@@ -13,7 +13,7 @@
 
 <script setup>
 import { onMounted } from "vue";
-import { useProductStore } from "@/store/ProductStore";
+import { useProductStore } from "@/stores/ProductStore";
 import ProductCard from "@/components/Product/ProductCard.vue";
 
 const store = useProductStore();

@@ -11,14 +11,14 @@
 </template>
 
 <script setup>
-import { usePurchaseStore } from "@/store/PurchaseStore";
-import PurchaseItem from "@/components/Purchase/PurchaseItem.vue";
+import { usePurchaseStore } from "@/stores/PurchaseStore";
+import PurchaseItem from "@/components/Purcharse/PurchaseItem.vue";
 import { onMounted } from "vue";
 
 const purchaseStore = usePurchaseStore();
 
 onMounted(() => {
-  purchaseStore.getPurchases();
+  purchaseStore.fetchPurchases();
 });
 
 const purchases = purchaseStore.purchases;

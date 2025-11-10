@@ -10,7 +10,7 @@
 <script setup>
 import { onMounted } from "vue";
 import { useRoute } from "vue-router";
-import { useProductStore } from "@/store/ProductStore";
+import { useProductStore } from "@/stores/ProductStore";
 
 const store = useProductStore();
 const route = useRoute();

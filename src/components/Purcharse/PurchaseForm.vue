@@ -21,8 +21,8 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import { useProductStore } from "@/store/ProductStore";
-import { usePurchaseStore } from "@/store/PurchaseStore";
+import { useProductStore } from "@/stores/ProductStore";
+import { usePurchaseStore } from "@/stores/PurchaseStore";
 
 const emit = defineEmits(["submitted"]);
 

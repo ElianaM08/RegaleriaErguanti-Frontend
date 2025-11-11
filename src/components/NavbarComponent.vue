@@ -1,12 +1,12 @@
 <template>
   <header :class="['navbar', { 'scrolled': isScrolled }]">
     <nav class="nav-container">
-      <h1 class="logo">TuMarca</h1>
+      <img src="../assets/images/logo.jpeg" alt="logo" class="logo">
 
       <ul class="nav-links" :class="{ 'open': isMenuOpen }">
         <li><router-link @click="closeMenu" to="/">Inicio</router-link></li>
         <li><router-link @click="closeMenu" to="/products">Productos</router-link></li>
-        <li><router-link @click="closeMenu" to="/about">Sobre mí</router-link></li>
+        <li><router-link @click="closeMenu" to="/about">Nosotros</router-link></li>
         <li><router-link @click="closeMenu" to="/contact">Contacto</router-link></li>
         <li><router-link @click="closeMenu" to="/login" class="login-btn">Ingresar</router-link></li>
       </ul>
@@ -54,13 +54,13 @@ onUnmounted(() => {
   padding: 20px 50px;
   z-index: 1000;
   transition: background 0.4s ease, box-shadow 0.4s ease;
-  background: transparent;
+  background: white;
 }
 
 .navbar.scrolled {
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(6px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+
 }
 
 .nav-container {
@@ -70,13 +70,12 @@ onUnmounted(() => {
 }
 
 .logo {
-  color: white;
   font-weight: bold;
-  font-size: 1.5rem;
   user-select: none;
+  height: 60px;
+  width: 80px;
 }
 
-/* Desktop links */
 .nav-links {
   display: flex;
   gap: 25px;
@@ -85,13 +84,13 @@ onUnmounted(() => {
 
 .nav-links a {
   text-decoration: none;
-  color: white;
+  color: rgb(0, 0, 0);
   font-weight: 400;
   transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #e8c7a5; /* tono cálido suave */
+  color: #e8c7a5; 
 }
 
 .login-btn {
@@ -105,7 +104,6 @@ onUnmounted(() => {
   color: black;
 }
 
-/* Mobile */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -116,20 +114,21 @@ onUnmounted(() => {
 .hamburger span {
   width: 25px;
   height: 2px;
-  background: white;
+  background:#e8c7a5;
   transition: 0.3s;
 }
 
 @media (max-width: 820px) {
   .hamburger {
     display: flex;
+  
   }
 
   .nav-links {
     position: fixed;
     top: 75px;
     right: -100%;
-    background: rgba(0,0,0,0.9);
+    background: rgba(255, 255, 255, 0.9);
     flex-direction: column;
     gap: 20px;
     width: 60%;

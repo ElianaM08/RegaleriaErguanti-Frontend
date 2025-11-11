@@ -16,30 +16,28 @@
       <div class="products">
         <div class="product-card" v-for="n in 3" :key="n">
           <div class="image-placeholder"></div>
-          <p>Producto {{ n }}</p>
         </div>
       </div>
     </section>
 
-    <section class="half-section">
-      <div class="image-side"></div>
-      <div class="text-side">
+    <section class="banner-section">
+      <div class="banner-overlay"></div>
+      <div class="banner-text">
         <h2>Nuestra Filosofía</h2>
         <p>Creemos en la dedicación, el detalle y el amor en cada pieza que creamos.</p>
       </div>
     </section>
+
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
+import img1 from "@/assets/images/regalo_inicio.jpg";
+import img2 from "@/assets/images/regalo_inicio2.jpg";
+import img3 from "@/assets/images/regalo_inicio3.jpg";
 
-const images = [
-  "/assets/images/regalo_inicio.jpg",
-  "/assets/images/regalo_inicio2.jpg",
-  "/assets/images/regalo_inicio3.jpg"
-];
-
+const images = [img1, img2, img3];
 const currentSlide = ref(0);
 
 onMounted(() => {
@@ -49,7 +47,7 @@ onMounted(() => {
 });
 </script>
 
-<style>
+<style scoped>
 .home-view {
   width: 100%;
   overflow-x: hidden;
@@ -63,17 +61,13 @@ onMounted(() => {
 
 .carousel-container {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   overflow: hidden;
 }
 
 .carousel-slide {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-size: cover;
   background-position: center;
   opacity: 0;
@@ -97,6 +91,8 @@ onMounted(() => {
   transform: translate(-50%, -50%);
   text-align: center;
   color: #fff;
+  width: 90%;
+  max-width: 800px;
 }
 
 .hero-text h1 {
@@ -107,6 +103,8 @@ onMounted(() => {
 .featured {
   padding: 4rem 2rem;
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .products {
@@ -117,8 +115,9 @@ onMounted(() => {
 }
 
 .product-card {
-  width: 200px;
+  width: 220px;
   text-align: center;
+  margin: 0 auto;
 }
 
 .image-placeholder {
@@ -128,14 +127,44 @@ onMounted(() => {
   border-radius: 8px;
 }
 
-.half-section {
+.banner-section {
+  position: relative;
+  height: 60vh;
+  width: 100%;
+  background: url('../assets/images/chica_regalo.jpg') center/cover no-repeat;
   display: flex;
-  height: 50vh;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.banner-text {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.banner-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.banner-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
 }
 
 .image-side {
-  flex: 1;
-  background: url('/assets/images/chica_regalo.jpg') center/cover;
+  flex: 4;
+  background: url('../assets/images/chica_regalo.jpg') center/cover;
 }
 
 .text-side {
@@ -144,6 +173,8 @@ onMounted(() => {
   flex-direction: column;
   justify-content: center;
   padding: 2rem;
+  text-align: center;
 }
+
 </style>
 

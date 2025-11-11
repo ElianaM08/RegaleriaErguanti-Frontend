@@ -32,6 +32,7 @@ const sendForm = () => {
 .contact {
   max-width: 800px;
   margin: 80px auto;
+  margin-top: 150px;
   text-align: center;
   padding: 0 20px;
 }

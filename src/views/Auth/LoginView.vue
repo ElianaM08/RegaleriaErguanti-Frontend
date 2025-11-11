@@ -1,23 +1,26 @@
 <template>
   <div class="auth-container">
-    <h2>Iniciar Sesión</h2>
+    <div class="auth-box">
+      <h2>Iniciar Sesión</h2>
 
-    <form @submit.prevent="handleLogin">
-      <input v-model="email" type="email" placeholder="Email" required />
-      <input v-model="password" type="password" placeholder="Contraseña" required />
+      <form @submit.prevent="handleLogin">
+        <input v-model="email" type="email" placeholder="Email" required />
+        <input v-model="password" type="password" placeholder="Contraseña" required />
 
-      <button type="submit" :disabled="loading">
-        {{ loading ? "Cargando..." : "Ingresar" }}
-      </button>
-    </form>
+        <button type="submit" :disabled="loading">
+          {{ loading ? "Cargando..." : "Ingresar" }}
+        </button>
+      </form>
 
-    <p class="switch-text">
-      ¿No tienes cuenta?
-      <router-link to="/register">Crear cuenta</router-link>
-    </p>
+      <p class="switch-text">
+        ¿No tienes cuenta?
+        <router-link to="/register">Crear cuenta</router-link>
+      </p>
 
-    <p v-if="error" class="error">{{ error }}</p>
+      <p v-if="error" class="error">{{ error }}</p>
+    </div> 
   </div>
+
 </template>
 
 <script setup>
@@ -50,12 +53,34 @@ const handleLogin = async () => {
 
 <style scoped>
 .auth-container {
-  max-width: 360px;
-  margin: 60px auto;
+  height: 100vh;
+  width: 100%;
   padding: 30px;
   border-radius: 8px;
   border: 1px solid #ddd;
   background: #fff;
+  background: url("../../assets/images/regalo_inicio.jpg") center/cover no-repeat;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.auth-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+.auth-box {
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2.5rem;
+  max-width: 350px;
+  width: 100%;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  text-align: center;
 }
 form {
   display: flex;
@@ -68,7 +93,7 @@ input, button {
   border: 1px solid #ccc;
 }
 button {
-  background: #915b34;
+  background: #e5bc93;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -81,4 +106,5 @@ button {
   margin-top: 10px;
   font-size: 14px;
 }
+
 </style>

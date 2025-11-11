@@ -10,7 +10,6 @@ onMounted(() => {
 
 <template>
   <section class="about">
-
     <div class="about-hero">
       <h1 data-aos="fade-up">Nuestra Regalería</h1>
       <p data-aos="fade-up" data-aos-delay="150">
@@ -26,20 +25,9 @@ onMounted(() => {
           Elegimos cada producto con intención, buscando que quien regale
           o reciba, sienta algo especial.
         </p>
-
-        <p>
-          Trabajamos con artesanos y pequeños emprendedores locales,
-          creando una selección cálida, auténtica y cuidada.
-          Si estás buscando “ese detalle” que diga lo que no se puede decir con palabras,
-          acá lo vas a encontrar.
-        </p>
       </div>
 
-      <img
-        src="https://images.unsplash.com/photo-1511715281345-4acae64a3e58"
-        alt="Regalos artesanales"
-        class="about-img"
-      />
+      <img src="../assets/images/regalo-sobreMi.jpg" alt="Regalos artesanales" class="about-img"/>
     </div>
 
   </section>
@@ -48,7 +36,7 @@ onMounted(() => {
 <style scoped>
 .about-hero {
   height: 70vh;
-  background: url("https://images.unsplash.com/photo-1519681393784-d120267933ba")
+  background: url("../assets/images/regalo-sobreMi1.jpg")
     center/cover no-repeat;
   display: flex;
   flex-direction: column;

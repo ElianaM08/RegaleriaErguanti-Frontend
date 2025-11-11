@@ -1,19 +1,22 @@
 <template>
   <div id="app">
     <Navbar  v-if="showNavbar"/>
-        <router-view />
+    <router-view />
+    <Footer v-if="showFooter" />
   </div>
 </template>
 <script setup>
 import Navbar from "./components/NavbarComponent.vue";
+import Footer from "./components/FooterComponent.vue"
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
 
-const showNavbar = computed(() => {
-  return route.path !== "/login" && route.path !== "/register";
-});
+const hiddenRoutes = ["/login", "/register"];
+
+const showNavbar = computed(() => !hiddenRoutes.includes(route.path));
+const showFooter = computed(() => !hiddenRoutes.includes(route.path));
 </script>
 
 <style>

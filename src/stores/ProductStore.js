@@ -4,12 +4,18 @@ import api from "../services/api";
 export const useProductStore = defineStore("products", {
   state: () => ({
     products: [],
+    selectedProduct: null,
   }),
 
   actions: {
     async fetchProducts() {
       const { data } = await api.get("/products");
       this.products = data;
+    },
+
+    async fetchProductById(id) {
+      const { data } = await api.get(`/products/${id}`);
+      this.selectedProduct = data;
     },
 
     async createProduct(product) {
@@ -28,4 +34,3 @@ export const useProductStore = defineStore("products", {
     }
   }
 });
-

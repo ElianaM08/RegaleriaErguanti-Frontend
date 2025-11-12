@@ -9,11 +9,11 @@ export const useAuthStore = defineStore("auth", {
 
   actions: {
     async register(name, email, password) {
-      await api.post("/register", { name, email, password });
+      await api.post("/auth/register", { name, email, password });
     },
 
     async login(email, password) {
-      const { data } = await api.post("/login", { email, password });
+      const { data } = await api.post("/auth/login", { email, password });
 
       this.user = data.user;
       this.token = data.token;

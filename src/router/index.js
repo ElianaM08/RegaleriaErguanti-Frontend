@@ -7,6 +7,9 @@ import LoginView from '@/views/Auth/LoginView.vue'
 import PurchaseListView from '@/views/Purchase/PurchaseListView.vue'
 import PurchaseCreateView from '@/views/Purchase/PurchaseCreateView.vue'
 import RegisterView from '@/views/Auth/RegisterView.vue'
+import ProductAdminView from '@/views/Products/ProductAdminView.vue'
+import ProductDetailView from '@/views/Products/ProductDetailView.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -31,6 +34,19 @@ const router = createRouter({
       name: 'product',
       component: ProductListView,
     },
+        {
+      path: "/products/:id",
+      name: "product-detail",
+      component: ProductDetailView,
+      props: true,
+    },
+    {
+      path: "/admin/products",
+      name: "admin-products",
+      component: ProductAdminView,
+      meta: { requiresAdmin: true },
+    },
+
     {
       path: '/login',
       name: 'login',

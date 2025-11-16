@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="container">
     <h1>Productos</h1>
+
     <div class="list">
       <ProductCard
         v-for="product in store.products"
@@ -24,9 +25,17 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.container {
+  padding: 2rem;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+}
+
 .list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1rem;
+  gap: 1.2rem;
 }
 </style>

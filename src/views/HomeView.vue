@@ -7,7 +7,11 @@
       <div class="overlay"></div>
       <div class="hero-text">
         <h1>Bienvenidos a Nuestra Tienda</h1>
-        <p>Regalos hechos con amor para momentos inolvidables.</p>
+        <p>Descubrí todos los regalos que podés hacer</p>
+        <router-link to="/products">
+          <button class="btn-product">Ver productos</button>
+        </router-link>
+
       </div>
     </section>
 
@@ -23,8 +27,8 @@
     <section class="banner-section">
       <div class="banner-overlay"></div>
       <div class="banner-text">
-        <h2>Nuestra Filosofía</h2>
-        <p>Creemos en la dedicación, el detalle y el amor en cada pieza que creamos.</p>
+        <h2>Regalos con Amor</h2>
+        <p>Detalles que hacen momentos inolvidables</p>
       </div>
     </section>
 
@@ -99,6 +103,17 @@ onMounted(() => {
   font-size: 3rem;
   margin-bottom: 0.5rem;
 }
+.btn-product{
+  margin-top: 40px;
+  padding: 14px;
+  background: #d1a57a;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: 0.3s;
+}
 
 .featured {
   padding: 4rem 2rem;
@@ -129,7 +144,7 @@ onMounted(() => {
 
 .banner-section {
   position: relative;
-  height: 60vh;
+  height: 100vh;
   width: 100%;
   background: url('../assets/images/chica_regalo.jpg') center/cover no-repeat;
   display: flex;

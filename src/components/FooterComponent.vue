@@ -3,8 +3,7 @@
     <div class="footer-content">
 
       <div class="brand">
-        <h3>Regalos con Amor</h3>
-        <p>Detalles que hacen momentos inolvidables ✨</p>
+
       </div>
 
       <div class="actions">

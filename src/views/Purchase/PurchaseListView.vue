@@ -13,7 +13,7 @@
 <script setup>
 import { usePurchaseStore } from "@/stores/PurchaseStore";
 import PurchaseItem from "@/components/Purcharse/PurchaseItem.vue";
-import { onMounted } from "vue";
+import { onMounted, computed } from "vue";
 
 const purchaseStore = usePurchaseStore();
 
@@ -21,11 +21,12 @@ onMounted(() => {
   purchaseStore.fetchPurchases();
 });
 
-const purchases = purchaseStore.purchases;
+const purchases = computed(() => purchaseStore.purchases);
 </script>
 
 <style scoped>
 .purchase-list {
+  margin-top: 80px;
   max-width: 700px;
   margin: auto;
   padding: 2rem;

@@ -5,10 +5,10 @@ import ContactView from '@/views/ContactView.vue'
 import ProductListView from '@/views/Products/ProductListView.vue'
 import LoginView from '@/views/Auth/LoginView.vue'
 import PurchaseListView from '@/views/Purchase/PurchaseListView.vue'
-import PurchaseCreateView from '@/views/Purchase/PurchaseCreateView.vue'
 import RegisterView from '@/views/Auth/RegisterView.vue'
 import ProductAdminView from '@/views/Products/ProductAdminView.vue'
 import ProductDetailView from '@/views/Products/ProductDetailView.vue'
+import PurchaseCreateView from '@/views/Purchase/PurchaseCreateView.vue'
 
 
 const router = createRouter({
@@ -63,9 +63,10 @@ const router = createRouter({
       component: PurchaseListView,
     },
     {
-      path: '/purchase/create',
-      name: 'purchaseCreate',
+      path: "/admin/purchase",
+      name: "admin-purchase",
       component: PurchaseCreateView,
+      meta: { requireAdmin: true }
     },
 
   ],

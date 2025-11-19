@@ -6,8 +6,9 @@
       <ul class="nav-links" :class="{ 'open': isMenuOpen }">
         <li><router-link @click="closeMenu" to="/">Inicio</router-link></li>
         <li><router-link @click="closeMenu" to="/products">Productos</router-link></li>
-        <li><router-link to="/products">Productos</router-link></li>
+        <li><router-link to="/purchase">Mis compras</router-link></li>
         <li><router-link to="/admin/products">Admin</router-link></li>
+         <li><router-link to="/admin/purchase">Carrito</router-link></li>
         <li><router-link @click="closeMenu" to="/about">Nosotros</router-link></li>
         <li><router-link @click="closeMenu" to="/contact">Contacto</router-link></li>
         <li><router-link @click="closeMenu" to="/login" class="login-btn">Ingresar</router-link></li>

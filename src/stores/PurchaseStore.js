@@ -14,7 +14,7 @@ export const usePurchaseStore = defineStore("purchases", {
 
     async createPurchase(purchase) {
       await api.post("/purchases", purchase);
-      this.fetchPurchases();
+      return this.fetchPurchases();
     }
   }
 });

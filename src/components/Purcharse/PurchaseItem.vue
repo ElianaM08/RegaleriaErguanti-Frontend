@@ -1,16 +1,16 @@
 <template>
   <div class="purchase-item">
-    <p><strong>{{ props.purchase.product.name }}</strong></p>
-    <p>Cantidad: {{ props.purchase.quantity }}</p>
-    <p>Total: ${{ props.purchase.totalPrice }}</p>
-    <p class="date">{{ formatDate(props.purchase.purchaseDate) }}</p>
+    <p><strong>{{ purchase.product.name }}</strong></p>
+    <p>Cantidad: {{ purchase.quantity }}</p>
+    <p>Total: ${{ purchase.totalPrice }}</p>
+    <p class="date">{{ formatDate(purchase.purchaseDate) }}</p>
   </div>
 </template>
 
 <script setup>
-const props = defineProps({ purchase: Object });
+const { purchase } = defineProps({ purchase: Object });
 
-const formatDate = (date) => new Date(date).toLocaleDateString();
+const formatDate = (date) => new Date(date).toLocaleDateString("es-AR");
 </script>
 
 <style scoped>

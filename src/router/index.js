@@ -9,6 +9,7 @@ import RegisterView from '@/views/Auth/RegisterView.vue'
 import ProductAdminView from '@/views/Products/ProductAdminView.vue'
 import ProductDetailView from '@/views/Products/ProductDetailView.vue'
 import PurchaseCreateView from '@/views/Purchase/PurchaseCreateView.vue'
+import StatisticView from '@/views/StatisticView.vue'
 
 
 const router = createRouter({
@@ -68,6 +69,13 @@ const router = createRouter({
       component: PurchaseCreateView,
       meta: { requireAdmin: true }
     },
+    {
+      path: "/admin/statistics",
+      name: "Statistics",
+      component: StatisticView,
+      meta: { requireAdmin: true}
+    }
+
 
   ],
 })

@@ -12,7 +12,17 @@
         <li><router-link to="/admin/statistics">Estadísticas</router-link></li>
         <li><router-link @click="closeMenu" to="/about">Nosotros</router-link></li>
         <li><router-link @click="closeMenu" to="/contact">Contacto</router-link></li>
-        <li><router-link @click="closeMenu" to="/login" class="login-btn">Ingresar</router-link></li>
+
+        <li v-if="!auth.isAuthenticated">
+          <router-link @click="closeMenu" to="/login" class="login-btn">
+            Ingresar
+          </router-link>
+        </li>
+        <li v-else>
+          <button @click="logout" class="logout-btn">
+            Salir
+          </button>
+        </li>
       </ul>
 
       <div class="hamburger" @click="toggleMenu">
@@ -26,6 +36,11 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
+import { useAuthStore } from "../stores/AuthStore";
+import { useRouter } from "vue-router";
+
+const auth = useAuthStore();
+const router = useRouter();
 
 const isScrolled = ref(false);
 const isMenuOpen = ref(false);
@@ -41,6 +56,12 @@ const handleScroll = () => {
   isScrolled.value = window.scrollY > 10;
 };
 
+const logout = () => {
+  auth.logout();
+  closeMenu();
+  router.push("/");
+};
+
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
 });
@@ -48,6 +69,7 @@ onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
 });
 </script>
+
 
 <style scoped>
 .navbar {
@@ -91,21 +113,21 @@ onUnmounted(() => {
   color: rgb(0, 0, 0);
   font-weight: 400;
   transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #e8c7a5; 
+  
 }
 
 .login-btn {
   border: 1px solid white;
-  padding: 6px 12px;
+  padding: 8px 12px;
   border-radius: 4px;
+  background-color: #e8c7a5;
 }
 
-.login-btn:hover {
-  background: white;
-  color: black;
+.logout-btn {
+  border: 1px solid white;
+  padding: 12px 20px;
+  border-radius: 4px;
+  background-color: #e8c7a5;
 }
 
 .hamburger {

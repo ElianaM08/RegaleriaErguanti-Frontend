@@ -13,7 +13,7 @@
     <input v-model.number="form.stock" type="number" required />
 
     <label>Imagen (URL)</label>
-    <input v-model="form.imageUrl" />
+    <input type="file" @change="onFileChange" />
 
     <button type="submit" class="btn-submit">
       {{ isEdit ? "Guardar cambios" : "Crear producto" }}
@@ -31,10 +31,28 @@ const props = defineProps({
 const emit = defineEmits(["submit"]);
 
 const form = ref({ ...props.initialData });
+const imageFile = ref(null);
 
 watch(() => props.initialData, (v) => (form.value = { ...v }));
 
-const onSubmit = () => emit("submit", form.value);
+const onFileChange = (e) => {
+  imageFile.value = e.target.files[0];
+};
+const onSubmit = () => {
+  const data = new FormData();
+  
+  data.append("name", form.value.name);
+  data.append("description", form.value.description);
+  data.append("price", form.value.price);
+  data.append("stock", form.value.stock);
+
+  
+  if (imageFile.value) {
+    data.append("image", imageFile.value);
+  }
+
+  emit("submit", data);
+};
 </script>
 
 <style scoped>

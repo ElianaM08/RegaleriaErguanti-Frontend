@@ -70,8 +70,8 @@ const router = createRouter({
       meta: { requireAdmin: true }
     },
     {
-      path: "/admin/statistics",
-      name: "Statistics",
+      path: "/statistic",
+      name: "Statistic",
       component: StatisticView,
       meta: { requireAdmin: true}
     }

@@ -30,7 +30,7 @@ onMounted(() => {
 }
 
 h1 {
-  margin-bottom: 1.5rem;
+  margin-top: 5rem;
 }
 
 .list {

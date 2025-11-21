@@ -1,14 +1,14 @@
 import { defineStore } from "pinia";
 import api from "../services/api";
 
-export const useStatisticStore = defineStore("statistics", {
+export const useStatisticStore = defineStore("statistic", {
   state: () => ({
     stats: null,
   }),
 
   actions: {
-    async fetchStatistics(userId) {
-      const { data } = await api.get(`/statistics/${userId}`);
+    async fetchStatistics(user) {
+      const { data } = await api.get(`/statistic/user/${user}`);
       this.stats = data;
     }
   }

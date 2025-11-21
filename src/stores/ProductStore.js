@@ -18,13 +18,17 @@ export const useProductStore = defineStore("products", {
       this.selectedProduct = data;
     },
 
-    async createProduct(product) {
-      await api.post("/products", product);
+    async createProduct(formData) {
+      await api.post("/products", formData, {
+        headers: { "Content-Type": "multipart/form-data" }
+      });
       this.fetchProducts();
     },
 
-    async updateProduct(id, product) {
-      await api.put(`/products/${id}`, product);
+    async updateProduct(id, formData) {
+      await api.put(`/products/${id}`, formData, {
+        headers: { "Content-Type": "multipart/form-data" }
+    });
       this.fetchProducts();
     },
 

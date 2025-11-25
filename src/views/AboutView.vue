@@ -21,9 +21,10 @@ onMounted(() => {
       <div class="text">
         <h2>Un regalo es mucho más que un objeto</h2>
         <p>
-          Somos un espacio creado para sorprender, emocionar y acompañar.
-          Elegimos cada producto con intención, buscando que quien regale
-          o reciba, sienta algo especial.
+         La empresa nació de una sensación simple: no encontraba regalos que realmente transmitieran lo que quería decir. Sentía que faltaban opciones con emoción, con intención, con ese toque especial que vuelve único un presente.
+        </p>
+        <p>
+          Por eso creé este espacio: una regalería donde cada detalle tiene significado, donde elegir un regalo sea un momento lindo y donde puedas expresar cariño, gratitud o un gesto sincero a través de algo pensado con amor.
         </p>
       </div>
 

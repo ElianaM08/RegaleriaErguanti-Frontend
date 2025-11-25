@@ -1,4 +1,7 @@
 <template>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mate+SC&family=Montserrat&family=Nanum+Gothic&family=Quicksand:wght@300..700&family=Raleway:ital,wght@1,262&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
   <div id="app">
     <Navbar  v-if="showNavbar"/>
     <router-view />
@@ -27,9 +30,12 @@ const showFooter = computed(() => !hiddenRoutes.includes(route.path));
 }
 
 body, #app {
-  font-family: "Inter", "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   background-color: #f8f6f3; 
-  color: #2d2d2d;
+  
 }
 #app {
   padding-top: 0; 

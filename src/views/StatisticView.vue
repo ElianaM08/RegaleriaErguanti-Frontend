@@ -1,73 +1,74 @@
+
 <template>
   <section class="stats">
     <h1>Estadísticas Generales</h1>
 
-    <div v-if="stats" class="cards">
-      <div class="card">
-        <h3>Total Invertido</h3>
-        <p>${{ stats.totalInvested }}</p>
+    <div v-if="stats">
+      <div class="cards">
+        <div class="card">
+          <h3>Total Invertido</h3>
+          <p>${{ stats.totalInvested }}</p>
+        </div>
+
+        <div class="card">
+          <h3>Total Vendido</h3>
+          <p>${{ stats.totalSold }}</p>
+        </div>
+
+        <div class="card">
+          <h3>Ganancia Neta</h3>
+          <p :class="{ profit: stats.totalProfit >= 0, loss: stats.totalProfit < 0 }">
+            ${{ stats.totalProfit }}
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Transacciones</h3>
+          <p>{{ stats.totalTransactions }}</p>
+        </div>
       </div>
 
-      <div class="card">
-        <h3>Total Vendido</h3>
-        <p>${{ stats.totalSold }}</p>
-      </div>
+      <h2>Historial</h2>
 
-      <div class="card">
-        <h3>Ganancia Neta</h3>
-        <p :class="{ profit: stats.totalProfit >= 0, loss: stats.totalProfit < 0 }">
-          ${{ stats.totalProfit }}
-        </p>
-      </div>
+      <table class="history">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Tipo</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
 
-      <div class="card">
-        <h3>Transacciones</h3>
-        <p>{{ stats.totalTransactions }}</p>
-      </div>
+        <tbody>
+          <tr v-for="p in stats.purchases" :key="p.id">
+            <td>{{ p.product.name }}</td>
+            <td>{{ p.type }}</td>
+            <td>{{ p.quantity }}</td>
+            <td>${{ p.totalPrice }}</td>
+            <td>{{ formatDate(p.purchaseDate) }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <h2>Historial</h2>
-
-    <table class="history">
-      <thead>
-        <tr>
-          <th>Producto</th>
-          <th>Tipo</th>
-          <th>Cantidad</th>
-          <th>Total</th>
-          <th>Fecha</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr v-for="p in stats.purchases" :key="p.id">
-          <td>{{ p.product.name }}</td>
-          <td>{{ p.type }}</td>
-          <td>{{ p.quantity }}</td>
-          <td>${{ p.totalPrice }}</td>
-          <td>{{ formatDate(p.purchaseDate) }}</td>
-        </tr>
-      </tbody>
-    </table>
-
+    <div v-else>
+      <p>Cargando estadísticas...</p>
+    </div>
   </section>
 </template>
 
 <script setup>
-import { onMounted } from "vue";
+import { computed} from "vue";
 import { useStatisticStore } from "@/stores/StatisticStore";
-import { useAuthStore } from "@/stores/AuthStore";
-
-const authStore = useAuthStore();
 const statisticStore = useStatisticStore();
 
-const userId = authStore.user.id;
+ 
+statisticStore.fetchAllStatistics();
 
-onMounted(() => {
-  statisticStore.fetchStatistics(userId);
-});
 
-const stats = statisticStore.stats;
+const stats = computed(() => statisticStore.stats);
 
 const formatDate = (d) => new Date(d).toLocaleDateString();
 </script>
@@ -76,7 +77,13 @@ const formatDate = (d) => new Date(d).toLocaleDateString();
 .stats {
   max-width: 900px;
   margin: auto;
+  margin-top: 100px;
   padding: 2rem;
+}
+h1{
+  margin-bottom: 20px;
+  display: grid;
+  justify-content: center;
 }
 
 .cards {

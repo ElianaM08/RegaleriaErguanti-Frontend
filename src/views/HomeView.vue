@@ -16,10 +16,10 @@
     </section>
 
     <section class="featured" data-aos="fade-up">
-      <h2>Destacados</h2>
+      <h2>Inspirate en estos regalos</h2>
       <div class="products">
         <div class="product-card" v-for="n in 3" :key="n">
-          <div class="image-placeholder"></div>
+          <img :src="destacados[n - 1]" class="featured-img" />
         </div>
       </div>
     </section>
@@ -40,8 +40,12 @@ import { ref, onMounted } from "vue";
 import img1 from "@/assets/images/regalo_inicio.jpg";
 import img2 from "@/assets/images/regalo_inicio2.jpg";
 import img3 from "@/assets/images/regalo_inicio3.jpg";
+import dest1 from "@/assets/images/Termo Autosebante.jpeg";
+import dest2 from "@/assets/images/riñoneras.jpeg";
+import dest3 from "@/assets/images/marcadores.jpeg";
 
 const images = [img1, img2, img3];
+const destacados = [dest1, dest2, dest3]
 const currentSlide = ref(0);
 
 onMounted(() => {
@@ -55,6 +59,9 @@ onMounted(() => {
 .home-view {
   width: 100%;
   overflow-x: hidden;
+}
+h2{
+  color: #d1a57a;
 }
 
 .hero {
@@ -120,6 +127,12 @@ onMounted(() => {
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
+}
+.featured-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .products {

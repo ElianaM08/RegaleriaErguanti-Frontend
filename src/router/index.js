@@ -10,7 +10,7 @@ import ProductAdminView from '@/views/Products/ProductAdminView.vue'
 import ProductDetailView from '@/views/Products/ProductDetailView.vue'
 import PurchaseCreateView from '@/views/Purchase/PurchaseCreateView.vue'
 import StatisticView from '@/views/StatisticView.vue'
-
+import { useAuthStore } from '@/stores/AuthStore'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -70,10 +70,15 @@ const router = createRouter({
       meta: { requireAdmin: true }
     },
     {
-      path: "/statistic",
+      path: "/admin/statistics",
       name: "Statistic",
       component: StatisticView,
-      meta: { requireAdmin: true}
+      meta: { requireAdmin: true},
+        beforeEnter: (to, from, next) => {
+         const auth = useAuthStore();
+          if (!auth.isAuthenticated || !auth.isAdmin) return next("/");
+        next();
+  }
     }
 
 

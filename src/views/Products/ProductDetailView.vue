@@ -7,7 +7,11 @@
 
     <p class="detail-price">${{ store.selectedProduct.price }}</p>
 
-    <button class="btn-add">Añadir al carrito</button>
+    <button @click="purchaseStore.addToCart(store.selectedProduct)">
+      Agregar al carrito
+    </button>
+
+
   </div>
 </template>
 
@@ -15,9 +19,11 @@
 import { onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { useProductStore } from "@/stores/ProductStore";
+import { usePurchaseStore } from "@/stores/PurchaseStore";
 
 const store = useProductStore();
 const route = useRoute();
+const purchaseStore = usePurchaseStore()
 
 onMounted(() => {
   store.fetchProductById(route.params.id);

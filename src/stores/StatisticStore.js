@@ -3,13 +3,19 @@ import api from "../services/api";
 
 export const useStatisticStore = defineStore("statistic", {
   state: () => ({
-    stats: null,
+    stats: [],
+    selectData: null,
   }),
 
   actions: {
-    async fetchStatistics(user) {
-      const { data } = await api.get(`/statistic/user/${user}`);
-      this.stats = data;
+      async fetchAllStatistics() {
+      try {
+        const  {data} = await api.get("/statistic/all");
+        this.selectData = data;
+      } catch (error) {
+        console.error("Error cargando estadísticas:", error);
+      }
     }
+
   }
 });

@@ -25,6 +25,11 @@ const purchases = computed(() => purchaseStore.purchases);
 </script>
 
 <style scoped>
+h1{
+  margin-top: 80px;
+  display: grid;
+  justify-content: center;
+}
 .purchase-list {
   margin-top: 80px;
   max-width: 700px;

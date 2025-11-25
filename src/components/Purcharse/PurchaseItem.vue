@@ -14,9 +14,11 @@ const formatDate = (date) => new Date(date).toLocaleDateString("es-AR");
 </script>
 
 <style scoped>
+
 .purchase-item {
   border-bottom: 1px solid #ddd;
   padding: 1rem 0;
+  margin-top: 40px;
 }
 .date {
   font-size: 0.9rem;

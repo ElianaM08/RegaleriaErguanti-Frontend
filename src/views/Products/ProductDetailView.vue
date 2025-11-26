@@ -7,7 +7,7 @@
 
     <p class="detail-price">${{ store.selectedProduct.price }}</p>
 
-    <button @click="purchaseStore.addToCart(store.selectedProduct)">
+    <button class="btn-add" @click="purchaseStore.addToCart(store.selectedProduct)">
       Agregar al carrito
     </button>
 
@@ -34,12 +34,13 @@ onMounted(() => {
 .detail-container {
   max-width: 800px;
   margin: auto;
+  margin-top: 100px;
   padding: 2rem;
 }
 
 .detail-img {
   width: 100%;
-  height: 350px;
+  height: 500px;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 1.5rem;
@@ -63,7 +64,7 @@ onMounted(() => {
 
 .btn-add {
   padding: 0.7rem 1.2rem;
-  background: #28a745;
+  background:#d1a57a ;
   color: white;
   border: none;
   border-radius: 6px;
@@ -71,6 +72,6 @@ onMounted(() => {
 }
 
 .btn-add:hover {
-  background: #1e7e34;
+  background: #b48f69;
 }
 </style>

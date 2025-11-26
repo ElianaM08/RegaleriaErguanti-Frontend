@@ -16,6 +16,7 @@ const goToList = () => router.push("/purchases");
 <style scoped>
 h1{
   margin-bottom: 30px;
+  color: #d1a57a;
 }
 .purchase-create {
   margin-top: 100px;

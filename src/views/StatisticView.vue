@@ -84,6 +84,7 @@ h1{
   margin-bottom: 20px;
   display: grid;
   justify-content: center;
+  color: #d1a57a;
 }
 
 .cards {

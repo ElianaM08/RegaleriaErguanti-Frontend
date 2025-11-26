@@ -38,6 +38,7 @@ const sendForm = () => {
 }
 .contact h1 {
   font-size: 2.5rem;
+  color: #d1a57a;
 }
 .contact p {
   margin-bottom: 40px;

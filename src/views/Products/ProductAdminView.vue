@@ -1,9 +1,10 @@
 <template>
   <div class="admin-container">
     <h1>Administrar Productos</h1>
-
-    <h2>Crear nuevo producto</h2>
-    <ProductForm @submit="create" />
+    <h2 class="create-title">Crear nuevo producto</h2>
+    <div class="form">
+      <ProductForm @submit="create"/>
+    </div>
 
     <hr />
 
@@ -53,6 +54,18 @@ const remove = async (id) => store.deleteProduct(id);
 h1 {
   margin-bottom: 1rem;
   margin-top: 80px;
+  display: grid;
+  justify-content: center;
+  color:#d1a57a;
+}
+.create-title{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.form {
+  display: flex;
+  justify-content: center;
 }
 
 .admin-list {

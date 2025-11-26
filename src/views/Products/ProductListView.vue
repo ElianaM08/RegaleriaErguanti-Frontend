@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Productos</h1>
+    <h1>Nuestros Productos</h1>
 
     <div class="list">
       <ProductCard
@@ -31,6 +31,10 @@ onMounted(() => {
 
 h1 {
   margin-top: 5rem;
+  margin-bottom: 2rem;
+  display: grid;
+  justify-content: center;
+  color:#d1a57a ;
 }
 
 .list {

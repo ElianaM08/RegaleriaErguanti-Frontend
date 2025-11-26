@@ -12,8 +12,8 @@
     <label>Stock</label>
     <input v-model.number="form.stock" type="number" required />
 
-    <label>Imagen (URL)</label>
-    <input type="file" @change="onFileChange" />
+    <label>Imagen</label>
+    <input type="file" @change="onFileChange" class="btn-add"/>
 
     <button type="submit" class="btn-submit">
       {{ isEdit ? "Guardar cambios" : "Crear producto" }}

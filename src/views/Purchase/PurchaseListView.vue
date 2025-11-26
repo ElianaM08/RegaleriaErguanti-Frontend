@@ -29,6 +29,7 @@ h1{
   margin-top: 80px;
   display: grid;
   justify-content: center;
+  color: #d1a57a;
 }
 .purchase-list {
   margin-top: 80px;

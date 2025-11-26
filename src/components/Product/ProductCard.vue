@@ -52,7 +52,7 @@ defineProps({
 .btn {
   display: block;
   padding: 0.5rem 1rem;
-  background: #0077ff;
+  background: #d1a57a;
   color: white;
   border-radius: 6px;
   text-decoration: none;
@@ -60,6 +60,6 @@ defineProps({
 }
 
 .btn:hover {
-  background: #005fcc;
+  background:#b6916d ;
 }
 </style>

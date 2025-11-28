@@ -62,11 +62,15 @@
 <script setup>
 import { computed} from "vue";
 import { useStatisticStore } from "@/stores/StatisticStore";
+import { useAuthStore } from "@/stores/AuthStore";
+
 const statisticStore = useStatisticStore();
 
- 
-statisticStore.fetchAllStatistics();
+const auth = useAuthStore();
 
+if (auth.isAuthenticated) {
+    statisticStore.fetchAllStatistics();
+}
 
 const stats = computed(() => statisticStore.stats);
 

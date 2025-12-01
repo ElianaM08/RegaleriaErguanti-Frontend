@@ -1,19 +1,3 @@
-<script setup>
-import { ref } from "vue";
-
-const name = ref("");
-const email = ref("");
-const message = ref("");
-
-const sendForm = () => {
-  console.log("Consulta recibida:", { name: name.value, email: email.value, message: message.value });
-  alert("Gracias por tu mensaje. Te respondemos en poquito 💛");
-  name.value = "";
-  email.value = "";
-  message.value = "";
-};
-</script>
-
 <template>
   <section class="contact">
     <h1>Contacto</h1>
@@ -22,11 +6,43 @@ const sendForm = () => {
     <form @submit.prevent="sendForm" class="contact-form">
       <input type="text" v-model="name" placeholder="Tu nombre" required />
       <input type="email" v-model="email" placeholder="Tu correo" required />
-      <textarea v-model="message" rows="5" placeholder="¿Qué regalo estás buscando? Contanos 😄" required></textarea>
+      <textarea
+        v-model="message"
+        rows="5"
+        placeholder="¿Qué regalo estás buscando? Contanos 😄"
+        required
+      ></textarea>
       <button type="submit">Enviar Consulta</button>
     </form>
   </section>
 </template>
+
+<script setup>
+import { ref } from "vue";
+import { useToast } from "vue-toastification";
+
+const name = ref("");
+const email = ref("");
+const message = ref("");
+
+const toast = useToast();
+
+const sendForm = () => {
+  console.log("Consulta recibida:", {
+    name: name.value,
+    email: email.value,
+    message: message.value,
+  });
+
+  toast.success("Consulta enviada");
+
+
+  name.value = "";
+  email.value = "";
+  message.value = "";
+};
+</script>
+
 
 <style scoped>
 .contact {

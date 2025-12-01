@@ -37,6 +37,7 @@ import { useToast } from "vue-toastification";
 
 const purchaseStore = usePurchaseStore();
 const toast = useToast();
+
 const cart = computed(() => purchaseStore.cart);
 const totalAmount = computed(() => purchaseStore.totalAmount);
 
@@ -46,12 +47,13 @@ const decrease = (id) => purchaseStore.decreaseQuantity(id);
 const confirm = async () => {
   await purchaseStore.confirmPurchase();
 
-  toast.success("Compra realizada con éxito", {
+  toast.success("Compra realizada con éxito 🛍️✨", {
     timeout: 2500,
     position: "top-right",
   });
 };
 </script>
+
 
 <style scoped>
 .cart-container {

@@ -7,11 +7,12 @@
 
     <p class="detail-price">${{ store.selectedProduct.price }}</p>
 
-    <button class="btn-add" @click="purchaseStore.addToCart(store.selectedProduct)">
+    <button
+      class="btn-add"
+      @click="handleAddToCart"
+    >
       Agregar al carrito
     </button>
-
-
   </div>
 </template>
 
@@ -20,15 +21,27 @@ import { onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { useProductStore } from "@/stores/ProductStore";
 import { usePurchaseStore } from "@/stores/PurchaseStore";
+import { useToast } from "vue-toastification";
 
 const store = useProductStore();
 const route = useRoute();
-const purchaseStore = usePurchaseStore()
+const purchaseStore = usePurchaseStore();
+
+const toast = useToast();
 
 onMounted(() => {
   store.fetchProductById(route.params.id);
 });
+
+const handleAddToCart = () => {
+  purchaseStore.addToCart(store.selectedProduct);
+
+  toast.success("Producto agregado al carrito 🛒✨", {
+    timeout: 2500,
+  });
+};
 </script>
+
 
 <style scoped>
 .detail-container {

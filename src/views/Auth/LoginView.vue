@@ -39,17 +39,23 @@ const router = useRouter();
 const handleLogin = async () => {
   loading.value = true;
   error.value = "";
+
   try {
-    await authStore.login(email.value, password.value);
-    router.push("/");
+    const loggedUser = await authStore.login(email.value, password.value);
+    if (loggedUser) {
+      router.push({ name: "home" });
+
+    }
+
   } catch (err) {
-    console.log(err);
+    console.error("ERROR LOGIN:", err);
     error.value = "Email o contraseña incorrectos";
   } finally {
     loading.value = false;
   }
 };
 </script>
+
 
 <style scoped>
 .auth-container {

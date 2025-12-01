@@ -5,10 +5,12 @@ import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import { useAuthStore } from './stores/AuthStore';
 
 import App from './App.vue'
 import router from './router'
 AOS.init()
+
 
 const app = createApp(App)
 
@@ -16,3 +18,5 @@ app.use(createPinia())
 app.use(router)
 app.use(Toast)
 app.mount('#app')
+const auth = useAuthStore();
+auth.loadFromLocalStorage(); 
